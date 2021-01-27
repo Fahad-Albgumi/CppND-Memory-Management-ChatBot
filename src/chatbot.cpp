@@ -35,8 +35,8 @@ ChatBot::ChatBot(ChatBot &chatBot) {
     std::cout << "ChatBot cpoy constructor" << std::endl;
     _image = chatBot._image;
     chatBot._image = NULL;
-    _image = new wxBitmap();
-    *_image = *otherChatbot._image;
+    _image = new wxBitmap(*chatBot._image);
+    *_image = *chatBot._image;
     _currentNode = chatBot._currentNode;
     _rootNode = chatBot._rootNode;
     _chatLogic = chatBot._chatLogic;
@@ -65,8 +65,8 @@ ChatBot &ChatBot::operator=(ChatBot &chatBot) {
     }
     delete _image;
     _image = chatBot._image;
-    _image = new wxBitmap();
-    *_image = *otherChatbot._image;
+    _image = new wxBitmap(*chatBot._image);
+    *_image = *chatBot._image;
     _currentNode = chatBot._currentNode;
     _rootNode = chatBot._rootNode;
     _chatLogic = chatBot._chatLogic;
